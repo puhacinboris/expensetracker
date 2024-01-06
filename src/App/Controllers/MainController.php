@@ -9,7 +9,7 @@ use Framework\TemplateEngine;
 use App\Config;
 use App\Config\Paths;
 
-class HomeController
+class MainController
 {
   private TemplateEngine $view;
 
@@ -17,10 +17,8 @@ class HomeController
   {
     $this->view = new TemplateEngine(Paths::VIEW);
   }
-  public function home()
+  public function page(string $path, array $data = [])
   {
-    echo $this->view->render("/index.php", [
-      'title' => 'Home'
-    ]);
+    echo $this->view->render($path, $data);
   }
 }
