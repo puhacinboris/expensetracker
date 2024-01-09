@@ -4,13 +4,17 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use Framework\TemplateEngine;
 
-class AboutController extends MainController
+class AboutController
 {
-  function about()
+
+  public function __construct(private TemplateEngine $view)
   {
-    $bla = new MainController();
-    $bla->page("/about.php", [
+  }
+  public function about()
+  {
+    echo $this->view->render("/about.php", [
       'title' => 'About'
     ]);
   }
